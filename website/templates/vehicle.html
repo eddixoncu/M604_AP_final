@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+ 
+    <title>Infractions</title>
+</head>
+<body>
+
+{% block content %}
+<h1>vehicle {{plate}}</h1>
+<form action="" method="POST">
+
+    <p>
+        The vehicle belongs to {{ full_name }} <br>
+        whose identification number is: {{document_number}}
+    </p>
+    <p>
+        To change to a new one, please choose one from the list below. <br>
+        Then press the button submit.
+    </p>
+    <p>
+        {{ form.owners.label }} {{ form.owners() }}
+    </p>
+    <p> 
+        {{form.change_owner}}
+    </p>
+</form>
+{% endblock %}
+</body>
